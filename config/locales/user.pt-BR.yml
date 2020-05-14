@@ -1,0 +1,21 @@
+---
+pt-BR:
+  activerecord:
+    models:
+      user: "Usuário"
+    attributes:
+      user:
+        email: "Email"
+        password: "Senha"
+        password_confirmation: "Confirmação de sehna"
+        remember_me: "Lembrar-me"
+        log_in: "Entrar"
+        sign_up: "Cadastrar-me"
+        forgot_your_password: "Esqueceu sua senha?"
+  devise:
+    sessions:
+      new:
+    registrations:
+      new:
+    shared:
+      links:
