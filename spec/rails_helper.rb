@@ -3,7 +3,7 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 
 require 'simplecov'
-Simplecov.start 'rails' do
+SimpleCov.start 'rails' do
   add_filter 'app/mailers'
   add_filter 'app/jobs'
   add_filter 'app/channels'

@@ -1,5 +1,5 @@
 {
-  "name": "HeadhunterWeb",
+  "name": "headhunter_web",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
