@@ -2,5 +2,13 @@
 pt-BR:
   activerecord:
     models:
-      user: "usuario"
+      profile: "Perfil"
     attributes:
+      profile:
+        name: "Nome"
+        social_name: "Nome social"
+        date_of_birth: "Data de aniversário"
+        formations: "Formações"
+        xp: "Experiancia"
+        save: "Salvar"
+        edit: "Editar"

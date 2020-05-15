@@ -1,0 +1,12 @@
+<h1><%= Profile.model_name.human %></h1>
+
+<ul class="list-group list-group-flush">
+  <li class="list-group-item"><%= @profile.name %></li>
+  <li class="list-group-item"><%= @profile.social_name %></li>
+  <li class="list-group-item"><%= @profile.date_of_birth %></li>
+  <li class="list-group-item"><%= @profile.formations %></li>
+  <li class="list-group-item"><%= @profile.xp %></li>
+</ul>
+<%= link_to Profile.human_attribute_name('edit'), root_path %>
+
+<%= link_to 'Voltar', root_path %>

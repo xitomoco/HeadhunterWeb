@@ -16,6 +16,17 @@
           <%= link_to "Inicio", 
           root_path, :class => 'nav-link'  %>
         </li>
+        <% if current_user.profile.present? %>
+          <li class="nav-item">
+            <%= link_to Profile.model_name.human, 
+            profile_path(current_user.profile), :class => 'nav-link'  %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to Profile.model_name.human, 
+            new_profile_path, :class => 'nav-link'  %>
+          </li>
+        <% end %>
         <li class="nav-item">
           <%= link_to "Sair", 
           destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
