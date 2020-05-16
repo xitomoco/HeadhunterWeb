@@ -11,11 +11,13 @@
 
   <body>
     <ul class="nav justify-content-end">
+
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "Inicio", 
           root_path, :class => 'nav-link'  %>
         </li>
+
         <% if current_user.profile.present? %>
           <li class="nav-item">
             <%= link_to Profile.model_name.human, 
@@ -27,6 +29,7 @@
             new_profile_path, :class => 'nav-link'  %>
           </li>
         <% end %>
+        
         <li class="nav-item">
           <%= link_to "Sair", 
           destroy_user_session_path, method: :delete, :class => 'nav-link'  %>
@@ -45,6 +48,7 @@
           new_user_registration_path, :class => 'nav-link' %>
         </li>
       <% end %>
+      
     </ul>
 
     <p class="notice"><%= notice %></p>
