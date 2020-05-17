@@ -1,12 +1,33 @@
-<h1><%= Profile.model_name.human %></h1>
+<div class="container">
+  <div class="coll-1">
+    <h1><%= Profile.model_name.human %></h1>
+  </div>
 
-<ul class="list-group list-group-flush">
-  <li class="list-group-item"><%= @profile.name %></li>
-  <li class="list-group-item"><%= @profile.social_name %></li>
-  <li class="list-group-item"><%= @profile.date_of_birth %></li>
-  <li class="list-group-item"><%= @profile.formations %></li>
-  <li class="list-group-item"><%= @profile.xp %></li>
-</ul>
-<%= link_to Profile.human_attribute_name('edit'), root_path %>
+  <div class="d-flex p-2">
+    <dl class="row">
+      <dt class="col-sm-2"><%= Profile.human_attribute_name('name') %></dt>
+      <dd class="col-sm-9"><%= @profile.name %></dd>
 
-<%= link_to 'Voltar', root_path %>
+      <dt class="col-sm-2"><%= Profile.human_attribute_name('social_name') %></dt>
+      <dd class="col-sm-9"><%= @profile.social_name %></dd>
+
+      <dt class="col-sm-2"><%= Profile.human_attribute_name('date_of_birth') %></dt>
+      <dd class="col-sm-9"><%= @profile.date_of_birth %></dd>
+
+      <dt class="col-sm-2"><%= Profile.human_attribute_name('formations') %></dt>
+      <dd class="col-sm-9"><%= @profile.formations %></dd>
+
+      <dt class="col-sm-2"><%= Profile.human_attribute_name('xp') %></dt>
+      <dd class="col-sm-9"><%= @profile.xp %></dd>
+    </dl>
+  </div>
+  
+  <div class="action">
+    <%= link_to Profile.human_attribute_name('edit'), root_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="action">
+    <br/>
+    <%= link_to 'Voltar', root_path, class: "btn btn-dark" %>
+  </div>
+</div>
