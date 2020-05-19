@@ -22,12 +22,12 @@
     </dl>
   </div>
   
-  <div class="action">
+  <div class="actions">
     <%= link_to Profile.human_attribute_name('edit'), root_path, class: "btn btn-primary" %>
   </div>
 
-  <div class="action">
+  <div class="actions">
     <br/>
-    <%= link_to 'Voltar', root_path, class: "btn btn-dark" %>
+    <%= link_to Profile.human_attribute_name('back'), root_path, class: "btn btn-dark" %>
   </div>
 </div>

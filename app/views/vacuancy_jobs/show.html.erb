@@ -1,0 +1,46 @@
+<div class="container">
+  <blockquote class="blockquote text-center">
+    <h1 class="display-3"><%= VacuancyJob.model_name.human %></h1>
+    <h2><%= @vacuancy_job.title %></h2>
+    <br/>
+  </blockquote>
+
+  <div class="d-flex p-2">
+    <dl class="row">
+      <dt class="col-sm-2"><%= VacuancyJob.human_attribute_name('title') %></dt>
+      <dd class="col-sm-9"><%= @vacuancy_job.title %></dd>
+
+      <dt class="col-sm-2"><%= VacuancyJob.human_attribute_name('description') %></dt>
+      <dd class="col-sm-9"><%= @vacuancy_job.description %></dd>
+
+      <dt class="col-sm-2"><%= VacuancyJob.human_attribute_name('ability_description') %></dt>
+      <dd class="col-sm-9"><%= @vacuancy_job.ability_description %></dd>
+
+      <dt class="col-sm-2"><%= VacuancyJob.human_attribute_name('salary') %></dt>
+      <dd class="col-sm-9">Entre <%= number_to_currency(@vacuancy_job.initial_salary) %> a <%= 
+        number_to_currency(@vacuancy_job.end_salary) %>
+      </dd>
+
+      <dt class="col-sm-2"><%= VacuancyJob.human_attribute_name('level') %></dt>
+      <dd class="col-sm-9"><%= @level_selection[@vacuancy_job.level][0] %></dd>
+
+      <dt class="col-sm-2"><%= VacuancyJob.human_attribute_name('limit_date') %></dt>
+      <dd class="col-sm-9"><%= @vacuancy_job.limit_date %></dd>
+
+      <dt class="col-sm-2"><%= VacuancyJob.human_attribute_name('addresse') %></dt>
+      <dd class="col-sm-9"><%= @vacuancy_job.addresse %></dd>
+
+      <dt class="col-sm-2">Criado por: </dt>
+      <dd class="col-sm-9"><%= @vacuancy_job.user.email %></dd>
+    </dl>
+  </div>
+  
+  <div class="actions">
+    <%= link_to Profile.human_attribute_name('edit'), root_path, class: "btn btn-primary" %>
+  </div>
+
+  <div class="actions">
+    <br/>
+    <%= link_to Profile.human_attribute_name('back'), root_path, class: "btn btn-dark" %>
+  </div>
+</div>

@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(params_profile)
-    @profile.user_id = current_user.id
+    set_user_id
     if @profile.save
       flash[:notice] = "Salvo com sucesso"
       redirect_to @profile
@@ -28,5 +28,9 @@ class ProfilesController < ApplicationController
   
   def set_profile
     @profile = Profile.find(params[:id])
+  end
+
+  def set_user_id
+    @profile.user = current_user
   end
 end

@@ -3,6 +3,7 @@ pt-BR:
   activerecord:
     models:
       profile: "Perfil"
+      vacuancy_job: "Vaga de emprego"
     attributes:
       profile:
         name: "Nome"
@@ -12,3 +13,15 @@ pt-BR:
         xp: "Experiancia"
         save: "Salvar"
         edit: "Editar"
+        back: "Voltar"
+      vacuancy_job:
+        title: "Titulo"
+        description: "Descrição"
+        ability_description: "Descrição das habilidades"
+        initial_salary: "Min"
+        end_salary: "Max"
+        level: "Nivel da vaga"
+        limit_date: "Data limite"
+        addresse: "Endereço"
+        create: "Criar"
+        salary: "Salario"
