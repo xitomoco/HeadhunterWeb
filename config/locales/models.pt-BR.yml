@@ -4,6 +4,7 @@ pt-BR:
     models:
       profile: "Perfil"
       vacuancy_job: "Vaga de emprego"
+      job_application: "Inscrição de trabalho"
     attributes:
       profile:
         name: "Nome"
@@ -25,3 +26,11 @@ pt-BR:
         addresse: "Endereço"
         create: "Criar"
         salary: "Salario"
+      job_application:
+        vacuancy_job: "Vaga de emprego"
+        vacuancy_job_id: "Vaga de emprego"
+        user: "Usuario"
+        user_id: "Usuario"
+        comment: "Comentário"
+        subscriber: "Inscrever-se"
+        register: "Registrar"

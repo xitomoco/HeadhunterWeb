@@ -1,0 +1,25 @@
+<div class="container">
+  <div>
+    <h1 class="col-4"><%= JobApplication.model_name.human %></h1>
+  </div>
+
+  <div class="d-flex p-2">
+    <%= form_with model: @job_application, local: :true do |f| %>
+      <div class="form-group">
+        <%= f.label :comment, JobApplication.human_attribute_name('comment') %>
+        <%= f.text_area :comment, class: "form-control" %>
+      </div>
+
+      <%= f.hidden_field :vacuancy_job_id, value: @vacuancy_job_id %>
+
+      <div class="actions">
+        <%= f.submit JobApplication.human_attribute_name('register'), class: "btn btn-success" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <br/>
+    <%= link_to Profile.human_attribute_name('back'), :back, class: "btn btn-dark" %>
+  </div>
+</div>

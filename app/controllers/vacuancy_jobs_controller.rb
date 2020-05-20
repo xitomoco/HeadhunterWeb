@@ -22,6 +22,7 @@ class VacuancyJobsController < ApplicationController
   end
 
   def show
+    set_job_applications
     set_vacuancy_job
     set_level_selection
   end
@@ -45,5 +46,9 @@ class VacuancyJobsController < ApplicationController
 
   def set_vacuancy_job
     @vacuancy_job = VacuancyJob.find(params[:id])
+  end
+
+  def set_job_applications
+    @job_applications = JobApplication.where(params[:id])
   end
 end

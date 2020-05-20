@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_235643) do
+ActiveRecord::Schema.define(version: 2020_05_20_052747) do
+
+  create_table "job_applications", force: :cascade do |t|
+    t.integer "vacuancy_job_id", null: false
+    t.integer "user_id", null: false
+    t.string "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_job_applications_on_user_id"
+    t.index ["vacuancy_job_id"], name: "index_job_applications_on_vacuancy_job_id"
+  end
 
   create_table "profiles", force: :cascade do |t|
     t.string "name"
@@ -52,6 +62,8 @@ ActiveRecord::Schema.define(version: 2020_05_18_235643) do
     t.index ["user_id"], name: "index_vacuancy_jobs_on_user_id"
   end
 
+  add_foreign_key "job_applications", "users"
+  add_foreign_key "job_applications", "vacuancy_jobs"
   add_foreign_key "profiles", "users"
   add_foreign_key "vacuancy_jobs", "users"
 end

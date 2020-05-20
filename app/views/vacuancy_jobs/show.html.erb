@@ -37,6 +37,22 @@
   
   <div class="actions">
     <%= link_to Profile.human_attribute_name('edit'), root_path, class: "btn btn-primary" %>
+
+    <%= link_to JobApplication.human_attribute_name('subscriber'), new_job_application_path(
+        vacuancy_job_id: @vacuancy_job), class: "btn btn-success" %>
+  </div>
+
+  <div class="d-flex flex-row bd-highlight mb-3">
+    <% @job_applications.each do |job_application| %>
+      <div class="card" style="widht: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= job_application.user.profile.name %></h5>
+          <h4 class="card-title"><%= job_application.user.profile.formations %></h4>
+          <p class="card-text"><%= job_application.comment %></p>
+          <%= link_to Profile.model_name.human, job_application.user.profile %>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <div class="actions">
