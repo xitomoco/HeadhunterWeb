@@ -1,0 +1,11 @@
+<div class="container">
+  <blockquote class="blockquote text-center">
+    <h1 class="display-3">Minhas Inscrições</h1>
+    <br/>
+  </blockquote>
+
+  <% @job_applications.each do |vacuancy| %>
+    <h3><%= link_to vacuancy.vacuancy_job.title, vacuancy_job_path(vacuancy.vacuancy_job) %></h3>
+    <p><%= vacuancy.vacuancy_job.description %></p>
+  <% end %>
+</div>

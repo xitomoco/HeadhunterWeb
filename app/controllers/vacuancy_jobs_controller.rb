@@ -26,7 +26,10 @@ class VacuancyJobsController < ApplicationController
     set_vacuancy_job
     set_level_selection
   end
-  
+
+  def search_candidate
+    @job_applications = JobApplication.where("user_id = #{current_user.id}")
+  end
 
   private
   
