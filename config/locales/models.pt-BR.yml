@@ -32,5 +32,7 @@ pt-BR:
         user: "Usuario"
         user_id: "Usuario"
         comment: "Comentário"
-        subscriber: "Inscrever-se"
+        subscriber: "Inscrito"
         register: "Registrar"
+        subscribers: "Inscritos"
+        sign_up: "Inscrever-se"

@@ -15,7 +15,7 @@ feature 'Headhunter create vacancy job' do
     fill_in 'Min', with: '1000'
     fill_in 'Max', with: '1800'
     select 'Estágio', from: 'Nivel da vaga'
-    fill_in 'Data limite', with: 5.days.from_now
+    fill_in 'Data limite', with: '30-05-2020'
     fill_in 'Endereço', with: 'Rua das petalas N21'
     click_on 'Criar'
 

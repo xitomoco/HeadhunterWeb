@@ -52,6 +52,6 @@ class VacuancyJobsController < ApplicationController
   end
 
   def set_job_applications
-    @job_applications = JobApplication.where(params[:id])
+    @job_applications = JobApplication.where("vacuancy_job_id = #{params[:id]}")
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_052747) do
+ActiveRecord::Schema.define(version: 2020_05_22_043048) do
 
   create_table "job_applications", force: :cascade do |t|
     t.integer "vacuancy_job_id", null: false
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_05_20_052747) do
     t.float "initial_salary"
     t.float "end_salary"
     t.integer "level"
-    t.string "limit_date"
+    t.date "limit_date"
     t.string "addresse"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
