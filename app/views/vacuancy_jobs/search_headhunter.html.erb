@@ -1,18 +1,18 @@
 <div class="container">
   <div class="text-center">
-    <h1 class="display-3">Minhas Inscrições</h1>
+    <h1 class="display-3">Minhas Vagas</h1>
     <br/>
   </div>
 
   <div class="row">
     <div class="col-sm-5">
-      <% @job_applications.each do |vacuancy| %>
+      <% @vacuancy_jobs.each do |vacuancy_job| %>
         <div class="card">
           <div class="card-body">
-            <h3><%= link_to vacuancy.vacuancy_job.title, vacuancy_job_path(vacuancy.vacuancy_job) %></h3>
-            <p><%= vacuancy.vacuancy_job.description %></p>
+            <h3><%= link_to vacuancy_job.title, vacuancy_job_path(vacuancy_job) %></h3>
+            <p><%= vacuancy_job.description %></p>
           </div>
-        </div>
+        <div>
         <br/>
       <% end %>
     </div>
