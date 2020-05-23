@@ -7,4 +7,5 @@ Rails.application.routes.draw do
     get 'search_headhunter', on: :collection
   end
   resources :job_applications, only: [:index, :new, :create, :show]
+  resources :comment_of_profiles, only: [:create]
 end

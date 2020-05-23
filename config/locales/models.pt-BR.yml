@@ -5,6 +5,7 @@ pt-BR:
       profile: "Perfil"
       vacuancy_job: "Vaga de emprego"
       job_application: "Inscrição de trabalho"
+      comment_of_profile: "Comentario do perfil"
     attributes:
       profile:
         name: "Nome"
@@ -36,3 +37,10 @@ pt-BR:
         register: "Registrar"
         subscribers: "Inscritos"
         sign_up: "Inscrever-se"
+      comment_of_profile:
+        user: "Usuario"
+        user_id: "Usuario"
+        profile: "Perfil"
+        profile_id: "Perfil"
+        comment: "Comentar"
+        submit: "Enviar"

@@ -16,6 +16,9 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    @profile_id = (params[:id])
+    @comment_profiles = CommentOfProfile.where("profile_id = #{@profile_id}")
+    @comment_of_profile = CommentOfProfile.new
     set_profile
   end
   

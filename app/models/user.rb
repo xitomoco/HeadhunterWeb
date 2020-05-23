@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_one :profile
   has_many :vacuancy_jobs
   has_many :job_applications
+  has_many :comment_of_profiles
   #has_many :vacuancy_jobs through: :vacuancy_jobs
 
   # Include default devise modules. Others available are:
