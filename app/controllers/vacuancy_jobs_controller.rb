@@ -1,4 +1,5 @@
 class VacuancyJobsController < ApplicationController
+  before_action :authenticate_cadidate_profile, only: [:index, :search_candidate]
   before_action :authenticate_headhunter, only: [:new, :create, :search_headhunter]
   before_action :authenticate_candidate, only: [:search_candidate]
 
@@ -16,7 +17,7 @@ class VacuancyJobsController < ApplicationController
     @vacuancy_job = VacuancyJob.new(params_vacuancy_job)
     set_user_id
     if @vacuancy_job.save
-      flash[:notice] = "Object successfully created"
+      flash[:notice] = 'Vaga criada'
       redirect_to @vacuancy_job
     else
       render 'new'
