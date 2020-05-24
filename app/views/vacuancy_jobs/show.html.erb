@@ -36,10 +36,14 @@
   </div>
   
   <div class="actions">
-    <%= link_to Profile.human_attribute_name('edit'), root_path, class: "btn btn-primary" %>
+    <% if current_user.id == @vacuancy_job.user_id %>
+      <%= link_to Profile.human_attribute_name('edit'), root_path, class: "btn btn-primary" %>
+    <% end %>
 
-    <%= link_to JobApplication.human_attribute_name('sign_up'), new_job_application_path(
-        vacuancy_job_id: @vacuancy_job), class: "btn btn-success" %>
+    <% if policy(current_user).user_candidate? %>
+      <%= link_to JobApplication.human_attribute_name('sign_up'), new_job_application_path(
+          vacuancy_job_id: @vacuancy_job), class: "btn btn-success" %>
+    <% end %>
   </div>
 
   <div class="text-center">

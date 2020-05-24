@@ -10,7 +10,7 @@ feature 'Candidate subscriber' do
     login_as user, scope: :user
 
     visit root_path
-    click_on 'Buscar vagas de emprego'
+    click_on 'Vagas de emprego'
     click_on 'Jornalismo de BNN'
     click_on 'Inscrever-se'
 

@@ -13,7 +13,7 @@ feature 'Candidate view yours vacancy jobs' do
     login_as user, scope: :user
 
     visit root_path
-    click_on 'Minhas Inscrições'
+    click_on 'Minhas inscrições'
 
     expect(page).to have_link(vacuancy_job.title, href: vacuancy_job_path(vacuancy_job))
     expect(page).to have_content(vacuancy_job.description)

@@ -1,3 +1,13 @@
-<% @vacuancy_jobs.each do |vacuancy| %>
-  <%= link_to vacuancy.title, vacuancy %>
-<% end %>
+<div class="container">
+  <div class="text-center">
+    <h1 class="display-3">Vagas de Emprego</h1>
+    <br/>
+  </div>
+
+  <%= render partial: 'vagas' %>
+
+  <div class="actions">
+    <br/>
+    <%= link_to Profile.human_attribute_name('back'), :back, class: "btn btn-dark" %>
+  </div>
+</div>

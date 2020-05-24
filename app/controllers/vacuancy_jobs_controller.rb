@@ -1,4 +1,6 @@
 class VacuancyJobsController < ApplicationController
+  before_action :authenticate_headhunter, only: [:new, :create, :search_headhunter]
+  before_action :authenticate_candidate, only: [:search_candidate]
 
   def index
     @vacuancy_jobs = VacuancyJob.all
@@ -57,5 +59,13 @@ class VacuancyJobsController < ApplicationController
 
   def set_job_applications
     @job_applications = JobApplication.where("vacuancy_job_id = #{params[:id]}")
+  end
+
+  def authenticate_headhunter
+    authorize current_user, :user_headhunter?
+  end
+
+  def authenticate_candidate
+    authorize current_user, :user_candidate?
   end
 end

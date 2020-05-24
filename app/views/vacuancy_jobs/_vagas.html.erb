@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-sm-5">
+    <% @vacuancy_jobs.each do |vacuancy_job| %>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><%= link_to vacuancy_job.title, vacuancy_job_path(vacuancy_job) %></h3>
+          <p class="card-text"><%= vacuancy_job.description %></p>
+        </div>
+      </div>
+      <br/>
+    <% end %>
+  </div>
+</div>
