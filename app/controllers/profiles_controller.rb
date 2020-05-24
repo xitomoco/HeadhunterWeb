@@ -17,8 +17,9 @@ class ProfilesController < ApplicationController
 
   def show
     @profile_id = (params[:id])
-    @comment_profiles = CommentOfProfile.where("profile_id = #{@profile_id}")
+    @comment_profiles = CommentOfProfile.where({profile_id: "#{@profile_id}"})
     @comment_of_profile = CommentOfProfile.new
+    sef_favorite
     set_profile
   end
   
@@ -35,5 +36,13 @@ class ProfilesController < ApplicationController
 
   def set_user_id
     @profile.user = current_user
+  end
+
+  def sef_favorite
+    @favorite = Favorite.where({profile_id: "#{@profile_id}", user_id: "#{current_user.id}"})
+    @favorite = @favorite[0]
+    if @favorite.nil?
+      @favorite = Favorite.new
+    end
   end
 end

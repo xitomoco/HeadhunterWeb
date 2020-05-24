@@ -28,11 +28,11 @@ class VacuancyJobsController < ApplicationController
   end
 
   def search_candidate
-    @job_applications = JobApplication.where("user_id = #{current_user.id}")
+    @job_applications = JobApplication.where({user_id: "#{current_user.id}"})
   end
 
   def search_headhunter
-    @vacuancy_jobs = VacuancyJob.where("user_id = #{current_user.id}")
+    @vacuancy_jobs = VacuancyJob.where({user_id: "#{current_user.id}"})
   end
 
   private

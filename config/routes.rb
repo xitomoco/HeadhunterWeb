@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   end
   resources :job_applications, only: [:index, :new, :create, :show]
   resources :comment_of_profiles, only: [:create]
+  resources :favorites, only: [:create]
 end

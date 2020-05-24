@@ -6,6 +6,7 @@ pt-BR:
       vacuancy_job: "Vaga de emprego"
       job_application: "Inscrição de trabalho"
       comment_of_profile: "Comentario do perfil"
+      favorite: "Favorito"
     attributes:
       profile:
         name: "Nome"
@@ -44,3 +45,9 @@ pt-BR:
         profile_id: "Perfil"
         comment: "Comentar"
         submit: "Enviar"
+      favorite:
+        user: "Usuario"
+        user_id: "Usuario"
+        profile: "Perfil"
+        profile_id: "Perfil"
+        favor: "Favoritar"

@@ -1,6 +1,26 @@
 <div class="container">
-  <div class="coll-1">
-    <h1><%= Profile.model_name.human %></h1>
+  <div>
+    <% if @favorite.id.nil? %>
+      <div class="d-flex flex-row">
+        <h1><%= Profile.model_name.human %></h1>
+        <%= form_with model: @favorite, local: true do |f| %>
+          <%= f.hidden_field :profile_id, value: @profile_id %>
+
+          <div class="actions">
+            <div class="d-flex align-self-center">
+              <%= f.submit Favorite.human_attribute_name('favor'), class: "btn btn-warning" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="d-flex flex-row">
+        <h1><%= Profile.model_name.human %></h1>
+        <div class="align-self-center">
+          <span class="badge badge-warning">Favoritado</span>
+        </div>
+      </div>
+    <% end %>
   </div>
 
   <div class="d-flex p-2">
@@ -12,7 +32,7 @@
       <dd class="col-sm-9"><%= @profile.social_name %></dd>
 
       <dt class="col-sm-2"><%= Profile.human_attribute_name('date_of_birth') %></dt>
-      <dd class="col-sm-9"><%= @profile.date_of_birth %></dd>
+      <dd class="col-sm-9"><%= I18n.l @profile.date_of_birth, format: :default %></dd>
 
       <dt class="col-sm-2"><%= Profile.human_attribute_name('formations') %></dt>
       <dd class="col-sm-9"><%= @profile.formations %></dd>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_000738) do
+ActiveRecord::Schema.define(version: 2020_05_24_004140) do
 
   create_table "comment_of_profiles", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2020_05_23_000738) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["profile_id"], name: "index_comment_of_profiles_on_profile_id"
     t.index ["user_id"], name: "index_comment_of_profiles_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "profile_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["profile_id"], name: "index_favorites_on_profile_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
   create_table "job_applications", force: :cascade do |t|
@@ -35,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_000738) do
   create_table "profiles", force: :cascade do |t|
     t.string "name"
     t.string "social_name"
-    t.string "date_of_birth"
+    t.date "date_of_birth"
     t.string "formations"
     t.text "xp"
     t.datetime "created_at", precision: 6, null: false
@@ -74,6 +83,8 @@ ActiveRecord::Schema.define(version: 2020_05_23_000738) do
 
   add_foreign_key "comment_of_profiles", "profiles"
   add_foreign_key "comment_of_profiles", "users"
+  add_foreign_key "favorites", "profiles"
+  add_foreign_key "favorites", "users"
   add_foreign_key "job_applications", "users"
   add_foreign_key "job_applications", "vacuancy_jobs"
   add_foreign_key "profiles", "users"
