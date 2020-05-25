@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_headhunter
 
   def create
     @favorite = Favorite.new(params_favorite)
