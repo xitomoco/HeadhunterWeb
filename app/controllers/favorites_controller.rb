@@ -6,6 +6,7 @@ class FavoritesController < ApplicationController
     @favorite.user = current_user
     @favorite.profile = @profile
     @favorite.save!
+    flash[:notice] = 'Favoritado com sucesso'
     redirect_to @profile
   end
 

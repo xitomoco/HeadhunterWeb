@@ -12,7 +12,7 @@ class JobApplicationsController < ApplicationController
     @job_application.vacuancy_job = @vacuancy_job
 
     if @job_application.save
-      flash[:notice] = "Object successfully created"
+      flash[:notice] = 'Inscrição feita com sucesso'
       redirect_to @vacuancy_job
     else
       render 'new'

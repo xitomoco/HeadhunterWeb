@@ -17,7 +17,7 @@ class VacuancyJobsController < ApplicationController
     @vacuancy_job = VacuancyJob.new(params_vacuancy_job)
     set_user_id
     if @vacuancy_job.save
-      flash[:notice] = 'Vaga criada'
+      flash[:notice] = 'Vaga criada com sucesso'
       redirect_to @vacuancy_job
     else
       render 'new'

@@ -6,6 +6,7 @@ class CommentOfProfilesController < ApplicationController
     @comment_of_profile.user = current_user
     @comment_of_profile.profile = @profile
     @comment_of_profile.save!
+    flash[:notice] = 'Comentado com sucesso'
     redirect_to @profile
   end
   

@@ -51,8 +51,15 @@
       
     </ul>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% flash.each do |key, msg| %>
+      <div class="d-flex flex-row">
+        <% if key == 'notice' %>
+          <p class="alert alert-success"><%= msg %></p>
+        <% elsif key == 'alert' %>
+          <p class="alert alert-danger"><%= msg %></p>
+        <% end %>
+      </div>
+    <% end %>
 
     <%= yield %>
   </body>
