@@ -61,12 +61,4 @@ class VacuancyJobsController < ApplicationController
   def set_job_applications
     @job_applications = JobApplication.where("vacuancy_job_id = #{params[:id]}")
   end
-
-  def authenticate_headhunter
-    authorize current_user, :user_headhunter?
-  end
-
-  def authenticate_candidate
-    authorize current_user, :user_candidate?
-  end
 end

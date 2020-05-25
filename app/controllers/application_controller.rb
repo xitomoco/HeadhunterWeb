@@ -11,6 +11,14 @@ class ApplicationController < ActionController::Base
     redirect_to(request.referrer || root_path)
   end
 
+  def authenticate_headhunter
+    authorize current_user, :user_headhunter?
+  end
+
+  def authenticate_candidate
+    authorize current_user, :user_candidate?
+  end
+
   def authenticate_cadidate_profile
     if policy(current_user).user_candidate? && current_user.profile.nil?
       flash[:alert] = "Você deve completar seu pefil primeiro."

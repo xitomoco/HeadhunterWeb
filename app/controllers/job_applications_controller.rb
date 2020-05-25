@@ -1,4 +1,5 @@
 class JobApplicationsController < ApplicationController
+  before_action :authenticate_candidate
 
   def new
     @vacuancy_job_id = (params[:vacuancy_job_id])
