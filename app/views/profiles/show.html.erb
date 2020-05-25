@@ -1,25 +1,29 @@
 <div class="container">
   <div>
-    <% if @favorite.id.nil? %>
-      <div class="d-flex flex-row">
-        <h1><%= Profile.model_name.human %></h1>
-        <%= form_with model: @favorite, local: true do |f| %>
-          <%= f.hidden_field :profile_id, value: @profile_id %>
+    <% if policy(current_user).user_headhunter? %>
+      <% if @favorite.id.nil? %>
+        <div class="d-flex flex-row">
+          <h1><%= Profile.model_name.human %></h1>
+          <%= form_with model: @favorite, local: true do |f| %>
+            <%= f.hidden_field :profile_id, value: @profile_id %>
 
-          <div class="actions">
-            <div class="d-flex align-self-center">
-              <%= f.submit Favorite.human_attribute_name('favor'), class: "btn btn-warning" %>
+            <div class="actions">
+              <div class="d-flex align-self-center">
+                <%= f.submit Favorite.human_attribute_name('favor'), class: "btn btn-warning" %>
+              </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-    <% else %>
-      <div class="d-flex flex-row">
-        <h1><%= Profile.model_name.human %></h1>
-        <div class="align-self-center">
-          <span class="badge badge-warning">Favoritado</span>
+          <% end %>
         </div>
-      </div>
+      <% else %>
+        <div class="d-flex flex-row">
+          <h1><%= Profile.model_name.human %></h1>
+          <div class="align-self-center">
+            <span class="badge badge-warning">Favoritado</span>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <h1><%= Profile.model_name.human %></h1>
     <% end %>
   </div>
 
@@ -42,9 +46,11 @@
     </dl>
   </div>
   
-  <div class="actions">
-    <%= link_to Profile.human_attribute_name('edit'), root_path, class: "btn btn-primary" %>
-  </div>
+  <% if current_user.id == @profile.user_id %>
+    <div class="actions">
+      <%= link_to Profile.human_attribute_name('edit'), root_path, class: "btn btn-primary" %>
+    </div>
+  <% end %>
 
   <div class="text-center">
     <br/>
@@ -52,21 +58,23 @@
     <br/>
   </div>
 
-  <div class="col-sm-5">
-    <%= form_with model: @comment_of_profile, local: true do |f| %>
-      <div class="form-group">
-        <h3><%= f.label :comment, CommentOfProfile.human_attribute_name('comment') %></h3>
-        <%= f.text_area :comment, class: "form-control" %>
-      </div>
+  <% if policy(current_user).user_headhunter? %>
+    <div class="col-sm-5">
+      <%= form_with model: @comment_of_profile, local: true do |f| %>
+        <div class="form-group">
+          <h3><%= f.label :comment, CommentOfProfile.human_attribute_name('comment') %></h3>
+          <%= f.text_area :comment, class: "form-control" %>
+        </div>
 
-      <%= f.hidden_field :profile_id, value: @profile_id %>
+        <%= f.hidden_field :profile_id, value: @profile_id %>
 
-      <div class="actions">
-        <%= f.submit CommentOfProfile.human_attribute_name('submit'), class: "btn btn-success" %>
-      </div>
-      <br/>
-    <% end %>
-  </div>
+        <div class="actions">
+          <%= f.submit CommentOfProfile.human_attribute_name('submit'), class: "btn btn-success" %>
+        </div>
+        <br/>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="row">
     <div class="col-sm-5">

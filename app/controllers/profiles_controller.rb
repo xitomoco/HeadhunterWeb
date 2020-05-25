@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_cadidate_profile, only: [:show]
 
   def new
     @profile = Profile.new
