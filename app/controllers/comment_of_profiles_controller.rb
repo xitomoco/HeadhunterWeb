@@ -1,4 +1,5 @@
 class CommentOfProfilesController < ApplicationController
+  before_action :authenticate_headhunter
 
   def create
     @comment_of_profile = CommentOfProfile.new(params_comment_of_profile)
