@@ -5,8 +5,9 @@ pt-BR:
       profile: "Perfil"
       vacuancy_job: "Vaga de emprego"
       job_application: "Inscrição de trabalho"
-      comment_of_profile: "Comentario do perfil"
+      comment_of_profile: "Comentário do perfil"
       favorite: "Favorito"
+      comment_of_reject: "Comentário de rejeição"
     attributes:
       profile:
         name: "Nome"
@@ -51,3 +52,7 @@ pt-BR:
         profile: "Perfil"
         profile_id: "Perfil"
         favor: "Favoritar"
+      comment_of_reject:
+        comment: "Comentário"
+        reject: "Rejeitar"
+        submit: "Enviar"

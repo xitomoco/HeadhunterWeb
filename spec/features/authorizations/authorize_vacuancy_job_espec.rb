@@ -67,7 +67,7 @@ feature 'Authorize vacuancy job' do
       user = create(:user, email: 'cadidate2@test.com')
       profile = create(:profile, user: user)
       user2 = create(:user, email: 'headhunter2@test.com', role: 'headhunter')
-      vacuancy_job = create(:vacuancy_job, user: user2)  
+      vacuancy_job = create(:vacuancy_job, user: user2)
       login_as user, scope: :user
 
       visit vacuancy_job_path(vacuancy_job)
