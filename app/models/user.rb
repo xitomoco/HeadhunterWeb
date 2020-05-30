@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :comment_of_profiles
   has_many :favorites
   has_many :comment_of_rejects
+  has_many :comment_of_proposal
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

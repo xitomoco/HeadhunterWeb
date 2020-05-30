@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_28_224707) do
+ActiveRecord::Schema.define(version: 2020_05_29_224800) do
 
   create_table "comment_of_profiles", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -20,6 +20,17 @@ ActiveRecord::Schema.define(version: 2020_05_28_224707) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["profile_id"], name: "index_comment_of_profiles_on_profile_id"
     t.index ["user_id"], name: "index_comment_of_profiles_on_user_id"
+  end
+
+  create_table "comment_of_proposals", force: :cascade do |t|
+    t.integer "vacuancy_job_id", null: false
+    t.integer "user_id", null: false
+    t.string "comment"
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_comment_of_proposals_on_user_id"
+    t.index ["vacuancy_job_id"], name: "index_comment_of_proposals_on_vacuancy_job_id"
   end
 
   create_table "comment_of_rejects", force: :cascade do |t|
@@ -93,6 +104,8 @@ ActiveRecord::Schema.define(version: 2020_05_28_224707) do
 
   add_foreign_key "comment_of_profiles", "profiles"
   add_foreign_key "comment_of_profiles", "users"
+  add_foreign_key "comment_of_proposals", "users"
+  add_foreign_key "comment_of_proposals", "vacuancy_jobs"
   add_foreign_key "comment_of_rejects", "users"
   add_foreign_key "comment_of_rejects", "vacuancy_jobs"
   add_foreign_key "favorites", "profiles"

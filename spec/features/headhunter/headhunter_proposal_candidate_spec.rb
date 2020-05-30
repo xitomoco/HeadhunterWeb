@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'Headhunter reject cadidate' do
+feature 'Headhunter proposal candidate' do
   
   scenario 'successfully' do
     user = create(:user, email: 'cadidate2@test.com')
@@ -11,11 +11,12 @@ feature 'Headhunter reject cadidate' do
     login_as user2, scope: :user
 
     visit vacuancy_job_path(vacuancy_job)
-    click_on 'Rejeitar'
+    click_on 'Enviar proposta'
 
-    fill_in 'Comentário', with: 'Perfil não agrada a empresa'
+    fill_in 'Comentário', with: 'Gostarioamos de você'
     click_on 'Enviar'
 
-    expect(page).not_to have_content(profile.name)
+    expect(page).to have_content(profile.name)
+    expect(page).to have_content('Pendente')
   end
 end

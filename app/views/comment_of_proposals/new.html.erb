@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="d-flex">
+    <h2><%= CommentOfProposal.model_name.human %></h2>
+    <br/>
+  </div>
+
+  <%= form_with model: [@vacuancy_job, @comment_of_proposal], local: :true do |f| %>
+    <%= f.label :comment, CommentOfProposal.human_attribute_name('comment') %>
+    <%= f.text_area :comment, class: "form-control" %>
+
+    <%= f.hidden_field :user_id, value: @user_id %>
+
+    <% if current_user == @vacuancy_job.user %>
+      <div class="actions">
+        <%= f.submit CommentOfProposal.human_attribute_name('submit'), class: "btn btn-success" %>
+      </div>
+    <% end %>
+  <% end %>
+</div>

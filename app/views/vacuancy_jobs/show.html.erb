@@ -60,10 +60,22 @@
             <h5 class="card-title"><%= job_application.user.profile.name %></h5>
             <h4 class="card-title"><%= job_application.user.profile.formations %></h4>
             <p class="card-text"><%= job_application.comment %></p>
-            <%= link_to Profile.model_name.human, job_application.user.profile, class: "btn btn-info" %>
-            <% if current_user.id == @vacuancy_job.user_id %>
-              <%= link_to CommentOfReject.human_attribute_name('reject'), 
-              new_vacuancy_job_comment_of_reject_path(@vacuancy_job, user_id: job_application.user_id), class: "btn btn-danger" %>
+            <% if job_application.user.comment_of_proposal.present? %>
+              <p class="card-text">
+                <%= CommentOfProposal.human_attribute_name("status.#{job_application.user.comment_of_proposal[0].status }") %>
+              </p>
+              <%= link_to Profile.model_name.human, job_application.user.profile, class: "btn btn-info" %>
+            <% else %>
+              <%= link_to Profile.model_name.human, job_application.user.profile, class: "btn btn-info" %>
+              <% if current_user.id == @vacuancy_job.user_id %>
+                <%= link_to CommentOfReject.human_attribute_name('reject'), 
+                new_vacuancy_job_comment_of_reject_path(@vacuancy_job, user_id: job_application.user_id), 
+                class: "btn btn-danger" %>
+
+                <%= link_to CommentOfProposal.human_attribute_name('send_proposal'), 
+                new_vacuancy_job_comment_of_proposal_path(@vacuancy_job, user_id: job_application.user_id), 
+                class: "btn btn-success" %>
+              <% end %>
             <% end %>
           </div>
         </div>

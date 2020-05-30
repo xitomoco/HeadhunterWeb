@@ -8,6 +8,7 @@ pt-BR:
       comment_of_profile: "Comentário do perfil"
       favorite: "Favorito"
       comment_of_reject: "Comentário de rejeição"
+      comment_of_proposal: "Comentário de proposta"
     attributes:
       profile:
         name: "Nome"
@@ -56,3 +57,11 @@ pt-BR:
         comment: "Comentário"
         reject: "Rejeitar"
         submit: "Enviar"
+      comment_of_proposal:
+        comment: "Comentário"
+        submit: "Enviar"
+        send_proposal: "Enviar proposta"
+      comment_of_proposal/status:
+        pending: "Pendente"
+        rejected: "Rejeitado"
+        accepted: "Aceito"
