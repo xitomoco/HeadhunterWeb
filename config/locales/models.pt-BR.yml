@@ -19,6 +19,11 @@ pt-BR:
         save: "Salvar"
         edit: "Editar"
         back: "Voltar"
+        messages: "Mensagens"
+        proposals: "Propostas"
+        rejections: "Rejeições"
+        accept: "Aceitar"
+        reject: "Rejeitar"
       vacuancy_job:
         title: "Titulo"
         description: "Descrição"

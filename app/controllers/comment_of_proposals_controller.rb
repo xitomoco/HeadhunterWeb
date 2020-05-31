@@ -1,5 +1,5 @@
 class CommentOfProposalsController < ApplicationController
-  before_action :authenticate_headhunter
+  before_action :authenticate_headhunter, only: [:new, :create]
 
   def new
     @vacuancy_job = VacuancyJob.find(params[:vacuancy_job_id])
@@ -20,6 +20,20 @@ class CommentOfProposalsController < ApplicationController
       render 'new'
     end
   end
+
+  def update
+    @comment_of_proposal = CommentOfProposal.find(params[:id])
+    @status = params[:status]
+    @comment_of_proposal.update!(status: @status)
+    redirect_to message_proposals_profile_messages_path(@comment_of_proposal.user.profile)
+    #if @comment_of_proposal.update
+    #  flash[:alert] = "Aceito com sucesso"
+    #  redirect_to :back
+    #else
+    #  render 'edit'
+    #end
+  end
+  
 
   private
   

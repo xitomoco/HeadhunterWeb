@@ -23,7 +23,6 @@ class ProfilesController < ApplicationController
     sef_favorite
     set_profile
   end
-  
 
   private
 

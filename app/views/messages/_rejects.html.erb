@@ -1,0 +1,19 @@
+<div>
+  <h3><%= Profile.human_attribute_name('rejections') %></h3>
+  <br/>
+</div>
+
+<div class="row">
+  <div class="col-sm-5">
+    <% @comment_of_rejects.each do |reject| %>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><%= link_to reject.vacuancy_job.title, 
+                                     vacuancy_job_path(reject.vacuancy_job) %></h3>
+          <p class="card-text"><%= reject.comment %></p>
+        </div>
+      </div>
+      <br/>
+    <% end %>
+  </div>
+</div>

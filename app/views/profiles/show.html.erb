@@ -49,6 +49,9 @@
   <% if current_user.id == @profile.user_id %>
     <div class="actions">
       <%= link_to Profile.human_attribute_name('edit'), root_path, class: "btn btn-primary" %>
+
+      <%= link_to Profile.human_attribute_name('messages'), profile_messages_path(@profile), 
+          class: "btn btn-info" %>
     </div>
   <% end %>
 

@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="text-center">
+    <h1 class="display-3"><%= Profile.human_attribute_name('messages') %></h1>
+    <br/>
+  </div>
+
+
+  <% if @profile.user.comment_of_proposal.present? %>
+    <%= render partial: 'proposals' %>
+  <% end %>
+
+  <% if @profile.user.comment_of_rejects.present? %>
+    <%= render partial: 'rejects' %>
+  <% end %>
+
+  <div class="actions">
+    <br/>
+    <%= link_to Profile.human_attribute_name('back'), :back, class: "btn btn-dark" %>
+  </div>
+</div>
