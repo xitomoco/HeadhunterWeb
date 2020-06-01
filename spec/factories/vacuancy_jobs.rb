@@ -9,5 +9,6 @@ FactoryBot.define do
     limit_date { '30-12-2028' }
     addresse { 'Rua das petalas N21' }
     user { nil }
+    status { 0 }
   end
 end

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       get 'message_proposals', on: :collection
     end
   end
-  resources :vacuancy_jobs, only: [:index, :new, :create, :show] do
+  resources :vacuancy_jobs, only: [:index, :new, :create, :show, :update] do
     get 'search_candidate', on: :collection
     get 'search_headhunter', on: :collection
     resources :comment_of_rejects, only: [:new, :create]

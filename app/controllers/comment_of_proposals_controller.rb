@@ -24,14 +24,13 @@ class CommentOfProposalsController < ApplicationController
   def update
     @comment_of_proposal = CommentOfProposal.find(params[:id])
     @status = params[:status]
-    @comment_of_proposal.update!(status: @status)
-    redirect_to message_proposals_profile_messages_path(@comment_of_proposal.user.profile)
-    #if @comment_of_proposal.update
-    #  flash[:alert] = "Aceito com sucesso"
-    #  redirect_to :back
-    #else
-    #  render 'edit'
-    #end
+    if @comment_of_proposal.update!(status: @status)
+      flash[:alert] = "Aceito com sucesso"
+      redirect_to message_proposals_profile_messages_path(@comment_of_proposal.user.profile)
+    else
+      flash[:notice] = "Algo deu errado"
+      render root_path
+    end
   end
   
 

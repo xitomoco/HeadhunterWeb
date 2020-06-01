@@ -39,6 +39,18 @@ class VacuancyJobsController < ApplicationController
     @vacuancy_jobs = VacuancyJob.where({user_id: "#{current_user.id}"})
   end
 
+  def update
+    set_vacuancy_job
+    @status = 'closed'
+    if @vacuancy_job.update!(status: @status)
+      flash[:alert] = "Fechado com sucesso"
+      redirect_to @vacuancy_job
+    else
+      flash[:notice] = "Algo deu errado"
+      render root_path
+    end
+  end
+
   private
   
   def params_vacuancy_job

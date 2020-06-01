@@ -5,6 +5,10 @@
     <br/>
   </div>
 
+  <div>
+    <h4><%= VacuancyJob.human_attribute_name("status.#{@vacuancy_job.status}") %></h4>
+  </div>
+
   <div class="d-flex p-2">
     <dl class="row">
       <dt class="col-sm-2"><%= VacuancyJob.human_attribute_name('title') %></dt>
@@ -38,6 +42,10 @@
   <div class="actions">
     <% if current_user.id == @vacuancy_job.user_id %>
       <%= link_to Profile.human_attribute_name('edit'), root_path, class: "btn btn-primary" %>
+
+      <%= link_to VacuancyJob.human_attribute_name('close'), vacuancy_job_path(@vacuancy_job), 
+          method: 'patch', 
+          class: "btn btn-danger" %>
     <% end %>
 
     <% if policy(current_user).user_candidate? %>

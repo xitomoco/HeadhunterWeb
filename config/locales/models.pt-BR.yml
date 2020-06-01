@@ -37,6 +37,10 @@ pt-BR:
         addresse: "Endereço"
         create: "Criar"
         salary: "Salario"
+        close: "Encerrar"
+      vacuancy_job/status:
+        active: "Ativo"
+        closed: "Encerrada"
       job_application:
         vacuancy_job: "Vaga de emprego"
         vacuancy_job_id: "Vaga de emprego"
