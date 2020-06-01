@@ -41,8 +41,11 @@
     <% end %>
 
     <% if policy(current_user).user_candidate? %>
-      <%= link_to JobApplication.human_attribute_name('sign_up'), new_job_application_path(
-          vacuancy_job_id: @vacuancy_job), class: "btn btn-success" %>
+      <% if @application == false %>
+        <%= link_to JobApplication.human_attribute_name('sign_up'), 
+            new_job_application_path(vacuancy_job_id: @vacuancy_job), 
+            class: "btn btn-success" %>
+      <% end %>
     <% end %>
   </div>
 

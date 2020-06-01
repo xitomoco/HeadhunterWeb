@@ -28,6 +28,7 @@ class VacuancyJobsController < ApplicationController
     set_job_applications
     set_vacuancy_job
     set_level_selection
+    set_user_have_application
   end
 
   def search_candidate
@@ -60,5 +61,15 @@ class VacuancyJobsController < ApplicationController
 
   def set_job_applications
     @job_applications = JobApplication.where("vacuancy_job_id = #{params[:id]}")
+  end
+
+  def set_user_have_application
+    user = current_user
+    @application = false
+    @job_applications.each do |job_application|
+      if job_application.user_id == user.id
+        return @application = true
+      end
+    end
   end
 end

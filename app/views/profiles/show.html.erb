@@ -79,20 +79,26 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="col-sm-5">
-      <% @comment_profiles.each do |comment_profile| %>
-        <div class="card">
-          <div class="card-body">
-            <h3 class="card-title"><%= comment_profile.user.email %></h3>
-            <h5 class="card-text"><%= comment_profile.comment %></h5>
-            <p class="card-text"><%= I18n.l comment_profile.created_at, format: :long %></p>
+  <% if @comment_profiles.present? %>
+    <div class="row">
+      <div class="col-sm-5">
+        <% @comment_profiles.each do |comment_profile| %>
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title"><%= comment_profile.user.email %></h3>
+              <h5 class="card-text"><%= comment_profile.comment %></h5>
+              <p class="card-text"><%= I18n.l comment_profile.created_at, format: :long %></p>
+            </div>
           </div>
-        </div>
-        <br/>
-      <% end %>
+          <br/>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% else %>
+    <div class="text-center">
+      <h3><%= Profile.human_attribute_name('empty') %></h3>
+    </div>
+  <% end %>
 
   <div class="actions">
     <br/>

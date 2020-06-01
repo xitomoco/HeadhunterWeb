@@ -11,6 +11,8 @@
           <div class="card-body">
             <h3 class="card-title"><%= link_to vacuancy.vacuancy_job.title, vacuancy_job_path(vacuancy.vacuancy_job) %></h3>
             <p class="card-text"><%= vacuancy.vacuancy_job.description %></p>
+            <h4 class="card-title"><%= JobApplication.human_attribute_name('comment') %></h4>
+            <p class="card-text"><%= vacuancy.comment %></p>
           </div>
         </div>
         <br/>

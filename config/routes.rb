@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
+  resources 'messages_head', only: [:index] do
+    get 'message_rejects', on: :collection
+    get 'message_proposals', on: :collection
+  end
   resources :profiles, only: [:new, :create, :show] do
     resources 'messages', only: [:index] do
       get 'message_rejects', on: :collection

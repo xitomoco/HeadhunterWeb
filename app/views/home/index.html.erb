@@ -5,9 +5,51 @@
   </div>
 </div>
 
-<div>
-  <%= link_to 'Cadastrar vagas', new_vacuancy_job_path %>
-  <%= link_to 'Minhas vagas', search_headhunter_vacuancy_jobs_path %>
-  <%= link_to 'Vagas de emprego', vacuancy_jobs_path %>
-  <%= link_to 'Minhas inscrições', search_candidate_vacuancy_jobs_path %>
+<div class="container">
+  <% if user_signed_in? %>
+    <div class="row">
+      <div class="col">
+        <ul class="nav flex-column">
+          <% if policy(current_user).user_headhunter? %>
+            <li claass="nav-item">
+              <%= link_to 'Cadastrar vagas', new_vacuancy_job_path, class: "nav-link" %>
+            </li>
+
+            <li claass="nav-item">
+              <%= link_to 'Minhas vagas', search_headhunter_vacuancy_jobs_path, class: "nav-link" %>
+            </li>
+
+            <% if @user.vacuancy_jobs.present? %>
+              <li claass="nav-item">
+                <%= link_to Profile.human_attribute_name('messages'), messages_head_index_path, 
+                    class: "nav-link" %>
+              </li>
+            <% else %>
+              <li claass="nav-item">
+                <%= link_to Profile.human_attribute_name('messages'), messages_head_index_path, 
+                    class: "nav-link disabled" %>
+              </li>
+            <% end %>
+          <% end %>
+
+          <% if policy(current_user).user_candidate? %>
+            <li claass="nav-item">
+              <%= link_to 'Minhas inscrições', search_candidate_vacuancy_jobs_path, class: "nav-link" %>
+            </li>
+
+            <% if current_user.profile.present? %>
+              <li claass="nav-item">
+                <%= link_to Profile.human_attribute_name('messages'), profile_messages_path(@profile), 
+                    class: "nav-link" %>
+              </li>
+            <% end %>
+          <% end %>
+
+          <li claass="nav-item">
+            <%= link_to 'Vagas de emprego', vacuancy_jobs_path, class: "nav-link" %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  <% end %>
 </div>

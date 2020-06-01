@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_candidate, only: [:new]
   before_action :authenticate_cadidate_profile, only: [:show]
 
   def new
@@ -35,6 +36,7 @@ class ProfilesController < ApplicationController
   end
 
   def set_user_id
+    @profile.user_id = current_user.id
     @profile.user = current_user
   end
 

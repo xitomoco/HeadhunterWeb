@@ -2,5 +2,5 @@ class VacuancyJob < ApplicationRecord
   belongs_to :user
   has_many :job_applications
   has_many :comment_of_rejects
-  has_many :comment_of_proposal
+  has_many :comment_of_proposals
 end

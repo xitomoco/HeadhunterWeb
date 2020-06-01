@@ -4,7 +4,7 @@
     <br/>
   </div>
 
-  <% if @profile.user.comment_of_proposal.empty? && @profile.user.comment_of_rejects.empty? %>
+  <% if @vacuancy_jobs[0].comment_of_proposals.empty? && @vacuancy_jobs[0].comment_of_rejects.empty? %>
     <div class="text-center">
       <h3><%= Profile.human_attribute_name('empty') %></h3>
     </div>
@@ -12,11 +12,11 @@
 
   <%= render partial: 'nav_msg' %>
 
-  <% if @profile.user.comment_of_proposal.present? %>
+  <% if @vacuancy_jobs[0].comment_of_proposals.present? %>
     <%= render partial: 'proposals' %>
   <% end %>
 
-  <% if @profile.user.comment_of_rejects.present? %>
+  <% if @vacuancy_jobs[0].comment_of_rejects.present? %>
     <%= render partial: 'rejects' %>
   <% end %>
 

@@ -1,10 +1,10 @@
 <div class="container">
   <div class="text-center">
-    <h1 class="display-3"><%= Profile.human_attribute_name('proposals') %></h1>
+    <h1 class="display-3"><%= Profile.human_attribute_name('rejections') %></h1>
     <br/>
   </div>
 
-  <% if @profile.user.comment_of_proposal.empty? %>
+  <% if @profile.user.comment_of_rejects.empty? %>
     <div class="text-center">
       <h3><%= Profile.human_attribute_name('empty') %></h3>
     </div>
@@ -12,5 +12,5 @@
 
   <%= render partial: 'nav_msg' %>
 
-  <%= render partial: 'proposals' %>
+  <%= render partial: 'rejects' %>
 </div>

@@ -24,6 +24,8 @@ pt-BR:
         rejections: "Rejeições"
         accept: "Aceitar"
         reject: "Rejeitar"
+        empty: "Não a mensagens"
+        all: "Todas"
       vacuancy_job:
         title: "Titulo"
         description: "Descrição"
@@ -65,6 +67,8 @@ pt-BR:
       comment_of_proposal:
         comment: "Comentário"
         submit: "Enviar"
+        rejected: "Rejeição"
+        proposal: "Proposta"
         send_proposal: "Enviar proposta"
       comment_of_proposal/status:
         pending: "Pendente"

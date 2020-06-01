@@ -1,0 +1,21 @@
+<div class="d-flex flex-row justify-content-center">
+  <ul class="nav">
+    <li claass="nav-item">
+      <%= link_to Profile.human_attribute_name('rejections'), 
+          message_rejects_profile_messages_path(@profile), 
+          class: "nav-link" %>
+    </li>
+
+    <li claass="nav-item">
+      <%= link_to Profile.human_attribute_name('proposals'), 
+          message_proposals_profile_messages_path(@profile), 
+          class: "nav-link" %>
+    </li>
+
+    <li claass="nav-item">
+      <%= link_to Profile.human_attribute_name('all'), 
+          profile_messages_path(@profile), 
+          class: "nav-link" %>
+    </li>
+  </ul>
+</div>
