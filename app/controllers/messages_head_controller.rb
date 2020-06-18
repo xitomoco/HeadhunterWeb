@@ -1,4 +1,4 @@
-class MessagesHeadController <ApplicationController
+class MessagesHeadController < ApplicationController
   before_action :authenticate_headhunter
 
   def index

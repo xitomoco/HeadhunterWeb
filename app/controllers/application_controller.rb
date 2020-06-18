@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    flash[:alert] = "Você não tem permissão para fazer esta ação."
+    flash[:alert] = 'Você não tem permissão para fazer esta ação.'
     redirect_to(request.referrer || root_path)
   end
 
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_cadidate_profile
     if policy(current_user).user_candidate? && current_user.profile.nil?
-      flash[:alert] = "Você deve completar seu pefil primeiro."
+      flash[:alert] = 'Você deve completar seu pefil primeiro.'
       redirect_to(new_profile_path)
     end
   end

@@ -1,12 +1,11 @@
 class VacuancyJobsController < ApplicationController
-  before_action :authenticate_headhunter, only: [:new, :create, :search_headhunter]
+  before_action :authenticate_headhunter, only: %i[new create search_headhunter]
   before_action :authenticate_cadidate_profile
-  before_action :authenticate_candidate, only: [:search_candidate]
+  before_action :authenticate_candidate, only: %i[search_candidate]
 
   def index
     @vacuancy_jobs = VacuancyJob.all
   end
-  
 
   def new
     @vacuancy_job = VacuancyJob.new
@@ -32,30 +31,32 @@ class VacuancyJobsController < ApplicationController
   end
 
   def search_candidate
-    @job_applications = JobApplication.where({user_id: "#{current_user.id}"})
+    @job_applications = JobApplication.where({ user_id: current_user.id })
   end
 
   def search_headhunter
-    @vacuancy_jobs = VacuancyJob.where({user_id: "#{current_user.id}"})
+    @vacuancy_jobs = VacuancyJob.where({ user_id: current_user.id })
   end
 
   def update
     set_vacuancy_job
     @status = 'closed'
     if @vacuancy_job.update!(status: @status)
-      flash[:alert] = "Fechado com sucesso"
+      flash[:alert] = 'Fechado com sucesso.'
       redirect_to @vacuancy_job
     else
-      flash[:notice] = "Algo deu errado"
+      flash[:notice] = 'Algo deu errado.'
       render root_path
     end
   end
 
   private
-  
+
   def params_vacuancy_job
-    params.require(:vacuancy_job).permit(:title, :description, :ability_description, :initial_salary, 
-                                         :end_salary, :level, :limit_date, :addresse)
+    params.require(:vacuancy_job).permit(:title, :description,
+                                         :ability_description, :initial_salary,
+                                         :end_salary, :level, :limit_date,
+                                         :addresse)
   end
 
   def set_user_id
@@ -63,8 +64,8 @@ class VacuancyJobsController < ApplicationController
   end
 
   def set_level_selection
-    @level_selection = [['Estágio', 0], ['Junior', 1], ['Pleno', 2], ['Sênior', 3], ['Especialista', 4], 
-                        ['Diretor', 5]]
+    @level_selection = [['Estágio', 0], ['Junior', 1], ['Pleno', 2],
+                        ['Sênior', 3], ['Especialista', 4], ['Diretor', 5]]
   end
 
   def set_vacuancy_job

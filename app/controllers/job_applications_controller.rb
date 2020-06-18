@@ -2,7 +2,7 @@ class JobApplicationsController < ApplicationController
   before_action :authenticate_candidate
 
   def new
-    @vacuancy_job_id = (params[:vacuancy_job_id])
+    @vacuancy_job_id = params[:vacuancy_job_id]
     @job_application = JobApplication.new
   end
 
@@ -21,7 +21,7 @@ class JobApplicationsController < ApplicationController
   end
 
   private
-  
+
   def params_job_application
     params.require(:job_application).permit(:comment, :vacuancy_job_id)
   end

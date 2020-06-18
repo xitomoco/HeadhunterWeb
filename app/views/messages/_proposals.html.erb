@@ -4,17 +4,17 @@
       <div class="card">
         <div class="card-body">
           <h3 class="card-title"><%= link_to proposal.vacuancy_job.title, 
-                                      vacuancy_job_path(proposal.vacuancy_job) %></h3>
+                                     vacuancy_job_path(proposal.vacuancy_job) %></h3>
           <p class="card-text"><%= CommentOfProposal.human_attribute_name('proposal') %></p>
           <p class="card-text"><%= proposal.comment %></p>
           <% if proposal.status == 'pending' %>
-            <%= link_to Profile.human_attribute_name('accept'), 
-                vacuancy_job_comment_of_proposal_path(proposal.vacuancy_job, proposal, 
-                status: 'accepted'), method: 'patch', class: "btn btn-success" %>
+            <%= link_to Profile.human_attribute_name('accept'),
+                [proposal.vacuancy_job, proposal, status: 'accepted'],
+                method: 'patch', class: "btn btn-success" %>
 
-            <%= link_to Profile.human_attribute_name('reject'), 
-                vacuancy_job_comment_of_proposal_path(proposal.vacuancy_job, proposal, 
-                status: 'rejected'), method: 'patch', class: "btn btn-danger" %>
+            <%= link_to Profile.human_attribute_name('reject'),
+                [proposal.vacuancy_job, proposal, status: 'rejected'],
+                method: 'patch', class: "btn btn-danger" %>
           <% else %>
             <p class="card-text">
               <%= CommentOfProposal.human_attribute_name("status.#{proposal.status}") %>

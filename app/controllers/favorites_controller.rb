@@ -15,5 +15,5 @@ class FavoritesController < ApplicationController
 
   def params_favorite
     params.require(:favorite).permit(:profile_id)
-  end  
+  end
 end

@@ -10,7 +10,7 @@ class CommentOfProfilesController < ApplicationController
     flash[:notice] = 'Comentado com sucesso'
     redirect_to @profile
   end
-  
+
   private
 
   def params_comment_of_profile
